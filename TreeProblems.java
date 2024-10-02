@@ -20,14 +20,13 @@ public class TreeProblems {
    */
   
   public static Set<Integer> different(Set<Integer> setA, Set<Integer> setB) {
+    Set <Integer> setC = new TreeSet<>(setA);
+    setC.removeAll(setB);
+    Set <Integer> setD = new TreeSet<>(setB);
+    setD.removeAll(setA);
+    setD.addAll(setC);
 
-    // INSERT CODE HERE - DO NOT FORGET TO PLACE YOUR NAME ABOVE
-    //
-    // This can be done numerous ways, but once such will only that
-    // *several* lines of code. Hint: create two temporary TreeSets and utilize the
-    // methods retainAll(), addAll(), and removeAll(). But in the end, get something to work.
-
-    return setA;
+    return setD;
   }
 
 
@@ -39,12 +38,8 @@ public class TreeProblems {
    */
 
   public static void removeEven(Map<Integer, String> treeMap) {
-
-    // INSERT CODE HERE.
-
-    return;
+    treeMap.entrySet().removeIf(key -> key.getKey() % 2 == 0);
   }
-
 
   /**
    * Method treesEqual()
@@ -54,11 +49,7 @@ public class TreeProblems {
    */
 
   public boolean treesEqual(Map<Integer, String> tree1,Map<Integer, String> tree2 ) {
-
-    // INSERT CODE HERE
-
-    return false;
-
+      return tree1.entrySet().equals(tree2.entrySet());
   }
 
 } // end treeProblems class
